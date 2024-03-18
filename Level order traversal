@@ -1,0 +1,27 @@
+class Solution
+{
+    public:
+    vector<int> levelOrder(Node* root)
+    {
+      //Your code here
+      list<Node*> li;
+      li.push_back(root);
+      vector<int> result;
+      
+      while(!li.empty()){
+          int size=li.size();
+          for(int i=0;i<size;i++){
+              Node* temp=li.front();
+              li.pop_front();
+              result.push_back(temp->data);
+              
+              if(temp->left!=NULL) 
+              li.push_back(temp->left);
+              
+              if(temp->right!=NULL)
+              li.push_back(temp->right);
+            }
+        }
+        return result;
+    }
+};
